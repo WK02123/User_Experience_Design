@@ -19,13 +19,16 @@ const Header = () => {
               Home
             </a>
             <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
-              PS4
+              PlayStation 4
             </a>
             <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
-              PS5
+              PlayStation 5
             </a>
             <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
-              Nintendo
+              Nintendo Switch
+            </a>
+            <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
+              Games
             </a>
           </nav>
 
