@@ -16,16 +16,16 @@ const Header = () => {
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
-              News
+              Home
             </a>
             <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
-              PlayStation
+              PS4
             </a>
             <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
-              PlayStation Direct
+              PS5
             </a>
             <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
-              Support
+              Nintendo
             </a>
           </nav>
 
