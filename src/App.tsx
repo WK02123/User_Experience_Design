@@ -8,6 +8,7 @@ import PlayStation from "./pages/PlayStation";
 import PlayStation4 from "./pages/PlayStation4";
 import NintendoSwitch from "./pages/NintendoSwitch";
 import Games from "./pages/Games";
+import TrackOrder from "./pages/TrackOrder";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/playstation4" element={<PlayStation4 />} />
           <Route path="/nintendo-switch" element={<NintendoSwitch />} />
           <Route path="/games" element={<Games />} />
+          <Route path="/track-order" element={<TrackOrder />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
