@@ -37,10 +37,20 @@ const Header = () => {
             <Button variant="ghost" size="icon" className="hover:bg-muted">
               <Search className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="hover:bg-muted">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:bg-muted"
+              onClick={() => window.location.href = '/cart'}
+            >
               <ShoppingCart className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="hover:bg-muted">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="hover:bg-muted"
+              onClick={() => window.location.href = '/profile'}
+            >
               <User className="h-5 w-5" />
             </Button>
           </div>
