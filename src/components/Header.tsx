@@ -24,10 +24,10 @@ const Header = () => {
             <a href="/playstation" className="text-foreground hover:text-primary font-medium transition-colors">
               PlayStation 5
             </a>
-            <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
+            <a href="/nintendo-switch" className="text-foreground hover:text-primary font-medium transition-colors">
               Nintendo Switch
             </a>
-            <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
+            <a href="/games" className="text-foreground hover:text-primary font-medium transition-colors">
               Games
             </a>
           </nav>
