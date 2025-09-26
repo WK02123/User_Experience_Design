@@ -18,7 +18,7 @@ const Header = () => {
             <a href="/" className="text-foreground hover:text-primary font-medium transition-colors">
               Home
             </a>
-            <a href="#" className="text-foreground hover:text-primary font-medium transition-colors">
+            <a href="/playstation4" className="text-foreground hover:text-primary font-medium transition-colors">
               PlayStation 4
             </a>
             <a href="/playstation" className="text-foreground hover:text-primary font-medium transition-colors">
