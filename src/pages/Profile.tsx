@@ -1,4 +1,4 @@
-import { User, Package, Heart, Settings, LogOut } from "lucide-react";
+import { User, Package, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -39,14 +39,6 @@ const Profile = () => {
                   >
                     <Package className="mr-3 h-4 w-4" />
                     Track Orders
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <Heart className="mr-3 h-4 w-4" />
-                    Wishlist
-                  </Button>
-                  <Button variant="ghost" className="w-full justify-start">
-                    <Settings className="mr-3 h-4 w-4" />
-                    Settings
                   </Button>
                   <Button variant="ghost" className="w-full justify-start text-destructive hover:text-destructive">
                     <LogOut className="mr-3 h-4 w-4" />
