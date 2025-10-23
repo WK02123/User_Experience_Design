@@ -44,7 +44,7 @@ const Register = () => {
         title: "Success",
         description: "Account created successfully",
       });
-      navigate("/");
+      navigate("/home");
     } else {
       toast({
         title: "Error",
@@ -105,7 +105,7 @@ const Register = () => {
                 />
                 <p className="text-center text-sm text-muted-foreground">
                   Had An Account?{" "}
-                  <Link to="/login" className="text-primary hover:underline">
+                  <Link to="/" className="text-primary hover:underline">
                     Login
                   </Link>
                 </p>

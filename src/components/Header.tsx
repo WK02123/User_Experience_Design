@@ -9,7 +9,7 @@ const Header = () => {
 
   const handleLogout = () => {
     logout();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -25,7 +25,7 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-foreground hover:text-primary font-medium transition-colors">
+            <a href="/home" className="text-foreground hover:text-primary font-medium transition-colors">
               Home
             </a>
             <a href="/playstation4" className="text-foreground hover:text-primary font-medium transition-colors">
