@@ -1,6 +1,8 @@
 import heroImage from "@/assets/gaming-hero.jpg";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <section className="relative w-full h-[600px] overflow-hidden">
       <div className="absolute inset-0">
@@ -21,11 +23,12 @@ const HeroSection = () => {
             Discover the latest exclusive games and console experiences that push the boundaries of interactive entertainment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="/games">
-              <button className="gaming-button bg-primary hover:bg-primary-hover text-primary-foreground">
-                Explore Games
-              </button>
-            </a>
+            <button 
+              onClick={() => navigate('/games')}
+              className="gaming-button bg-primary hover:bg-primary-hover text-primary-foreground"
+            >
+              Explore Games
+            </button>
           </div>
         </div>
       </div>

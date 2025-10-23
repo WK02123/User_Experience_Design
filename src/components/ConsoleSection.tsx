@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import nintendoImage from "@/assets/nintendo-switch.jpg";
 import ps5Image from "@/assets/ps5-console.jpg";
 
 const ConsoleSection = () => {
+  const navigate = useNavigate();
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
       {/* Nintendo Switch Section */}
@@ -16,11 +18,12 @@ const ConsoleSection = () => {
               Play at home or on the go with the versatile Nintendo Switch console. 
               Experience your favorite games anywhere, anytime.
             </p>
-            <a href="/nintendo-switch">
-              <Button className="gaming-button bg-nintendo-red hover:bg-nintendo-red/90 text-white">
-                Console Information →
-              </Button>
-            </a>
+            <Button 
+              onClick={() => navigate('/nintendo-switch')}
+              className="gaming-button bg-nintendo-red hover:bg-nintendo-red/90 text-white"
+            >
+              Console Information →
+            </Button>
           </div>
           <div className="relative">
             <img 
@@ -50,11 +53,12 @@ const ConsoleSection = () => {
               Experience lightning-fast loading with the PS5 console. 
               Discover a deeper gaming experience with innovative features.
             </p>
-            <a href="/playstation">
-              <Button className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white">
-                Read more
-              </Button>
-            </a>
+            <Button 
+              onClick={() => navigate('/playstation')}
+              className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white"
+            >
+              Read more
+            </Button>
           </div>
         </div>
       </section>
