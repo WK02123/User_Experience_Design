@@ -16,9 +16,11 @@ const ConsoleSection = () => {
               Play at home or on the go with the versatile Nintendo Switch console. 
               Experience your favorite games anywhere, anytime.
             </p>
-            <Button className="gaming-button bg-nintendo-red hover:bg-nintendo-red/90 text-white">
-              Console Information →
-            </Button>
+            <a href="/nintendo-switch">
+              <Button className="gaming-button bg-nintendo-red hover:bg-nintendo-red/90 text-white">
+                Console Information →
+              </Button>
+            </a>
           </div>
           <div className="relative">
             <img 
@@ -48,9 +50,11 @@ const ConsoleSection = () => {
               Experience lightning-fast loading with the PS5 console. 
               Discover a deeper gaming experience with innovative features.
             </p>
-            <Button className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white">
-              Read more
-            </Button>
+            <a href="/playstation">
+              <Button className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white">
+                Read more
+              </Button>
+            </a>
           </div>
         </div>
       </section>

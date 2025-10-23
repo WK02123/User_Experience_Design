@@ -1,41 +1,23 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="bg-foreground text-background py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div>
-            <h3 className="text-lg font-bold mb-4">Exclusives</h3>
-            <ul className="space-y-2 text-sm text-background/80">
-              <li><a href="#" className="hover:text-background transition-colors">My Account</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Order Tracking</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Help Center</a></li>
-            </ul>
-          </div>
-          
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl">
           <div>
             <h3 className="text-lg font-bold mb-4">Account</h3>
             <ul className="space-y-2 text-sm text-background/80">
-              <li><a href="#" className="hover:text-background transition-colors">Sign In</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Create Account</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Manage Profile</a></li>
+              <li><Link to="/profile" className="hover:text-background transition-colors">My Account</Link></li>
+              <li><Link to="/track-order" className="hover:text-background transition-colors">Order Tracking</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm text-background/80">
-              <li><a href="#" className="hover:text-background transition-colors">Latest Games</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Console Deals</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Support</a></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-bold mb-4">Connect</h3>
-            <ul className="space-y-2 text-sm text-background/80">
-              <li><a href="#" className="hover:text-background transition-colors">Newsletter</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Social Media</a></li>
-              <li><a href="#" className="hover:text-background transition-colors">Community</a></li>
+              <li><Link to="/terms-and-conditions" className="hover:text-background transition-colors">Terms and Conditions</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-background transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>

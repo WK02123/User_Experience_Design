@@ -21,12 +21,11 @@ const HeroSection = () => {
             Discover the latest exclusive games and console experiences that push the boundaries of interactive entertainment.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="gaming-button bg-primary hover:bg-primary-hover text-primary-foreground">
-              Explore Games
-            </button>
-            <button className="gaming-button bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 border border-white/30">
-              Watch Trailer
-            </button>
+            <a href="/games">
+              <button className="gaming-button bg-primary hover:bg-primary-hover text-primary-foreground">
+                Explore Games
+              </button>
+            </a>
           </div>
         </div>
       </div>
