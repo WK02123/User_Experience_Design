@@ -116,25 +116,6 @@ const TrackOrder = () => {
                 </p>
               </CardContent>
             </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-4">Need Help</h3>
-                <div className="space-y-2">
-                  <Button variant="link" className="p-0 h-auto text-sm text-primary">
-                    Order Issues →
-                  </Button>
-                  <br />
-                  <Button variant="link" className="p-0 h-auto text-sm text-primary">
-                    Delivery Info →
-                  </Button>
-                  <br />
-                  <Button variant="link" className="p-0 h-auto text-sm text-primary">
-                    Returns →
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Order Summary */}

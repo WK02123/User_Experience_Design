@@ -1,9 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "@/hooks/use-toast";
 
 const Games = () => {
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (game: { title: string; price: string; image: string }) => {
+    addToCart({
+      id: game.title.toLowerCase().replace(/\s+/g, '-'),
+      name: game.title,
+      price: parseFloat(game.price.replace('RM ', '')),
+      image: game.image,
+    });
+    toast({
+      title: "Added to cart",
+      description: `${game.title} has been added to your cart`,
+    });
+    navigate('/cart');
+  };
   const ps5Games = [
     {
       id: 1,
@@ -95,7 +114,13 @@ const Games = () => {
               </div>
               <h3 className="text-sm font-medium mb-2 line-clamp-2">{game.title}</h3>
               <p className="text-lg font-bold text-primary mb-3">{game.price}</p>
-              <Button size="sm" className="w-full">Add to Cart</Button>
+              <Button 
+                size="sm" 
+                className="w-full"
+                onClick={() => handleAddToCart(game)}
+              >
+                Add to Cart
+              </Button>
             </CardContent>
           </Card>
         ))}

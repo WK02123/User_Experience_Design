@@ -1,12 +1,33 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { User, Package, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+  const [firstName, setFirstName] = useState("John");
+  const [lastName, setLastName] = useState("Doe");
+
+  const handleSaveChanges = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Success",
+      description: "Profile updated successfully",
+    });
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -23,7 +44,7 @@ const Profile = () => {
                   <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mb-4">
                     <User className="w-10 h-10 text-muted-foreground" />
                   </div>
-                  <h3 className="font-semibold">John Doe</h3>
+                  <h3 className="font-semibold">{firstName} {lastName}</h3>
                   <p className="text-sm text-muted-foreground">john.doe@example.com</p>
                 </div>
 
@@ -35,12 +56,16 @@ const Profile = () => {
                   <Button 
                     variant="ghost" 
                     className="w-full justify-start"
-                    onClick={() => window.location.href = '/track-order'}
+                    onClick={() => navigate('/track-order')}
                   >
                     <Package className="mr-3 h-4 w-4" />
                     Track Orders
                   </Button>
-                  <Button variant="ghost" className="w-full justify-start text-destructive hover:text-destructive">
+                  <Button 
+                    variant="ghost" 
+                    className="w-full justify-start text-destructive hover:text-destructive"
+                    onClick={handleLogout}
+                  >
                     <LogOut className="mr-3 h-4 w-4" />
                     Logout
                   </Button>
@@ -55,16 +80,27 @@ const Profile = () => {
               <CardContent className="p-6">
                 <h2 className="text-xl font-semibold mb-6">Edit Your Profile</h2>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name</Label>
-                    <Input id="firstName" placeholder="First" defaultValue="John" />
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name</Label>
-                    <Input id="lastName" placeholder="Last" defaultValue="Doe" />
-                  </div>
+                <form onSubmit={handleSaveChanges}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName">First Name</Label>
+                      <Input 
+                        id="firstName" 
+                        placeholder="First" 
+                        value={firstName}
+                        onChange={(e) => setFirstName(e.target.value)}
+                      />
+                    </div>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName">Last Name</Label>
+                      <Input 
+                        id="lastName" 
+                        placeholder="Last" 
+                        value={lastName}
+                        onChange={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
                   
                   <div className="space-y-2 md:col-span-2">
                     <Label htmlFor="email">Email</Label>
@@ -107,10 +143,11 @@ const Profile = () => {
                   </div>
                 </div>
 
-                <div className="flex justify-end gap-4 mt-8">
-                  <Button variant="outline">Cancel</Button>
-                  <Button>Save Changes</Button>
-                </div>
+                  <div className="flex justify-end gap-4 mt-8">
+                    <Button type="button" variant="outline">Cancel</Button>
+                    <Button type="submit">Save Changes</Button>
+                  </div>
+                </form>
               </CardContent>
             </Card>
 
@@ -121,7 +158,7 @@ const Profile = () => {
                   <h2 className="text-xl font-semibold">Recent Orders</h2>
                   <Button 
                     variant="outline"
-                    onClick={() => window.location.href = '/track-order'}
+                    onClick={() => navigate('/track-order')}
                   >
                     View All Orders
                   </Button>
@@ -146,7 +183,7 @@ const Profile = () => {
                       <Button 
                         size="sm" 
                         variant="outline"
-                        onClick={() => window.location.href = '/track-order'}
+                        onClick={() => navigate('/track-order')}
                       >
                         Track Order
                       </Button>

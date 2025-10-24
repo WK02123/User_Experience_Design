@@ -1,9 +1,28 @@
+import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "@/hooks/use-toast";
 import ps5Image from "@/assets/ps5-console.jpg";
 
 const PlayStation = () => {
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (product: { title: string; price: string; image: string }) => {
+    addToCart({
+      id: product.title.toLowerCase().replace(/\s+/g, '-'),
+      name: product.title,
+      price: parseFloat(product.price.replace('$', '')),
+      image: product.image,
+    });
+    toast({
+      title: "Added to cart",
+      description: `${product.title} has been added to your cart`,
+    });
+    navigate('/cart');
+  };
   const ps5Models = [
     {
       title: "PlayStation 5 Console",
@@ -115,7 +134,10 @@ const PlayStation = () => {
                   <p className="text-muted-foreground mb-4 leading-relaxed">{model.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-playstation-blue">{model.price}</span>
-                    <Button className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white">
+                    <Button 
+                      className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white"
+                      onClick={() => handleAddToCart(model)}
+                    >
                       Add to Cart
                     </Button>
                   </div>
@@ -149,7 +171,11 @@ const PlayStation = () => {
                   <p className="text-muted-foreground text-sm mb-3 leading-relaxed">{accessory.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-playstation-blue">{accessory.price}</span>
-                    <Button size="sm" className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white">
+                    <Button 
+                      size="sm" 
+                      className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white"
+                      onClick={() => handleAddToCart(accessory)}
+                    >
                       Add to Cart
                     </Button>
                   </div>

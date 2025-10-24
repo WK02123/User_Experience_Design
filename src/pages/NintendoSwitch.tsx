@@ -1,9 +1,28 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "@/hooks/use-toast";
 
 const NintendoSwitch = () => {
+  const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleAddToCart = (product: { name: string; price: string; image: string }) => {
+    addToCart({
+      id: product.name.toLowerCase().replace(/\s+/g, '-'),
+      name: product.name,
+      price: parseFloat(product.price.replace('RM ', '').replace(',', '')),
+      image: product.image,
+    });
+    toast({
+      title: "Added to cart",
+      description: `${product.name} has been added to your cart`,
+    });
+    navigate('/cart');
+  };
   const consoles = [
     {
       id: 1,
@@ -100,7 +119,12 @@ const NintendoSwitch = () => {
                       ))}
                     </div>
                   </div>
-                  <Button className="w-full">Add to Cart</Button>
+                  <Button 
+                    className="w-full"
+                    onClick={() => handleAddToCart(console)}
+                  >
+                    Add to Cart
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -132,7 +156,12 @@ const NintendoSwitch = () => {
                   <h3 className="text-lg font-semibold mb-2">{joycon.name}</h3>
                   <p className="text-sm text-muted-foreground mb-2">{joycon.color}</p>
                   <p className="text-2xl font-bold text-primary mb-4">{joycon.price}</p>
-                  <Button className="w-full">Add to Cart</Button>
+                  <Button 
+                    className="w-full"
+                    onClick={() => handleAddToCart(joycon)}
+                  >
+                    Add to Cart
+                  </Button>
                 </CardContent>
               </Card>
             ))}

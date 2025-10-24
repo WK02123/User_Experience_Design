@@ -25,21 +25,21 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="/home" className="text-foreground hover:text-primary font-medium transition-colors">
+            <button onClick={() => navigate('/home')} className="text-foreground hover:text-primary font-medium transition-colors">
               Home
-            </a>
-            <a href="/playstation4" className="text-foreground hover:text-primary font-medium transition-colors">
+            </button>
+            <button onClick={() => navigate('/playstation4')} className="text-foreground hover:text-primary font-medium transition-colors">
               PlayStation 4
-            </a>
-            <a href="/playstation" className="text-foreground hover:text-primary font-medium transition-colors">
+            </button>
+            <button onClick={() => navigate('/playstation')} className="text-foreground hover:text-primary font-medium transition-colors">
               PlayStation 5
-            </a>
-            <a href="/nintendo-switch" className="text-foreground hover:text-primary font-medium transition-colors">
+            </button>
+            <button onClick={() => navigate('/nintendo-switch')} className="text-foreground hover:text-primary font-medium transition-colors">
               Nintendo Switch
-            </a>
-            <a href="/games" className="text-foreground hover:text-primary font-medium transition-colors">
+            </button>
+            <button onClick={() => navigate('/games')} className="text-foreground hover:text-primary font-medium transition-colors">
               Games
-            </a>
+            </button>
           </nav>
 
           {/* Right side icons */}
