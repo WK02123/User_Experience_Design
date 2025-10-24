@@ -76,6 +76,7 @@ const Profile = () => {
 
           {/* Main Content */}
           <div className="lg:col-span-3">
+            {/* Profile Information Card */}
             <Card>
               <CardContent className="p-6">
                 <h2 className="text-xl font-semibold mb-6">Edit Your Profile</h2>
@@ -122,9 +123,35 @@ const Profile = () => {
                   </div>
                 </div>
 
-                <div className="mt-8">
-                  <h3 className="text-lg font-semibold mb-4">Password Changes</h3>
-                  
+                  <div className="flex justify-end gap-4 mt-8">
+                    <Button 
+                      type="button" 
+                      variant="outline"
+                      onClick={() => {
+                        setFirstName("John");
+                        setLastName("Doe");
+                      }}
+                    >
+                      Cancel
+                    </Button>
+                    <Button type="submit">Save Changes</Button>
+                  </div>
+                </form>
+              </CardContent>
+            </Card>
+
+            {/* Password Changes Card */}
+            <Card className="mt-6">
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold mb-6">Password Changes</h2>
+                
+                <form onSubmit={(e) => {
+                  e.preventDefault();
+                  toast({
+                    title: "Success",
+                    description: "Password updated successfully",
+                  });
+                }}>
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="currentPassword">Current Password</Label>
@@ -141,10 +168,18 @@ const Profile = () => {
                       <Input id="confirmPassword" type="password" />
                     </div>
                   </div>
-                </div>
 
                   <div className="flex justify-end gap-4 mt-8">
-                    <Button type="button" variant="outline">Cancel</Button>
+                    <Button 
+                      type="button" 
+                      variant="outline"
+                      onClick={(e) => {
+                        const form = e.currentTarget.closest('form');
+                        if (form) form.reset();
+                      }}
+                    >
+                      Cancel
+                    </Button>
                     <Button type="submit">Save Changes</Button>
                   </div>
                 </form>

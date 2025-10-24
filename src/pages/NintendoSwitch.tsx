@@ -26,40 +26,26 @@ const NintendoSwitch = () => {
   const consoles = [
     {
       id: 1,
-      name: "Nintendo Switch OLED Model",
-      price: "RM 1,499",
+      name: "Nintendo Switch OLED Console Mario Red",
+      price: "RM 1699",
       image: "/placeholder.svg",
-      colors: ["Neon Blue/Neon Red", "White"]
+      description: "Experience gaming in breathtaking 4K quality with enhanced graphics and improved performance"
     },
     {
       id: 2,
-      name: "Nintendo Switch",
-      price: "RM 1,299", 
+      name: "Nintendo Switch OLED Console Neon",
+      price: "RM 1999", 
       image: "/placeholder.svg",
-      colors: ["Neon Blue/Neon Red", "Gray"]
-    },
-    {
-      id: 3,
-      name: "Nintendo Switch Lite",
-      price: "RM 899",
-      image: "/placeholder.svg", 
-      colors: ["Yellow", "Coral", "Turquoise", "Gray", "Blue"]
+      description: "Compact design with all the power in a sleek, slimmer package for modern living spaces."
     }
   ];
 
   const joycons = [
     {
       id: 1,
-      name: "Joy-Con (L)/(R)",
-      price: "RM 349",
-      color: "Neon Blue/Neon Red",
-      image: "/placeholder.svg"
-    },
-    {
-      id: 2, 
-      name: "Joy-Con (L)/(R)",
-      price: "RM 349",
-      color: "Neon Pink/Neon Green", 
+      name: "Sparkfox Dual Controller Charging Station",
+      price: "RM 599",
+      description: "Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility",
       image: "/placeholder.svg"
     }
   ];
@@ -108,17 +94,8 @@ const NintendoSwitch = () => {
                     />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{console.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-2">{console.description}</p>
                   <p className="text-2xl font-bold text-primary mb-4">{console.price}</p>
-                  <div className="mb-4">
-                    <p className="text-sm text-muted-foreground mb-2">Available Colors:</p>
-                    <div className="flex flex-wrap gap-1">
-                      {console.colors.map((color, index) => (
-                        <span key={index} className="text-xs bg-muted px-2 py-1 rounded">
-                          {color}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                   <Button 
                     className="w-full"
                     onClick={() => handleAddToCart(console)}
@@ -154,7 +131,7 @@ const NintendoSwitch = () => {
                     />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{joycon.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-2">{joycon.color}</p>
+                  <p className="text-sm text-muted-foreground mb-2">{joycon.description}</p>
                   <p className="text-2xl font-bold text-primary mb-4">{joycon.price}</p>
                   <Button 
                     className="w-full"

@@ -13,7 +13,7 @@ const PlayStation4 = () => {
     addToCart({
       id: product.title.toLowerCase().replace(/\s+/g, '-'),
       name: product.title,
-      price: parseFloat(product.price.replace('$', '')),
+      price: parseFloat(product.price.replace('RM ', '').replace(',', '')),
       image: product.image,
     });
     toast({
@@ -26,55 +26,55 @@ const PlayStation4 = () => {
     {
       title: "PlayStation 4 Pro",
       description: "Experience gaming in breathtaking 4K quality with enhanced graphics and improved performance.",
-      price: "$399.99",
-      image: "https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?w=400&h=300&fit=crop",
+      price: "RM 1599",
+      image: "/placeholder.svg",
       tag: "4K GAMING"
     },
     {
       title: "PlayStation 4 Slim",
       description: "Compact design with all the power of PS4 in a sleek, slimmer package for modern living spaces.",
-      price: "$299.99",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
+      price: "RM 1299",
+      image: "/placeholder.svg",
       tag: "COMPACT"
     }
   ];
 
   const accessories = [
     {
-      title: "DualShock 4 Wireless Controller",
-      description: "Precision control with revolutionary features including responsive analog sticks.",
-      price: "$64.99",
-      image: "https://images.unsplash.com/photo-1592840496693-26d035b52b48?w=300&h=200&fit=crop"
+      title: "Controller Back Button Attachment",
+      description: "Introducing the Access controller for PS4, a customisable and adaptive controller kit to make gaming more accessible to disabled gamers.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "PlayStation Gold Wireless Headset",
-      description: "Premium wireless audio with virtual 7.1 surround sound for immersive gaming.",
-      price: "$99.99",
-      image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=200&fit=crop"
+      title: "IPEGA Controller & PS Move QUAD Charging Station",
+      description: "Quickly create a recording or a broadcast of yourself and your gameplay",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "PlayStation Camera",
-      description: "Advanced motion sensing for PlayStation VR and gesture controls.",
-      price: "$59.99",
-      image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=300&h=200&fit=crop"
+      title: "Sparkfox Dual Controller Charging Station",
+      description: "Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "Vertical Stand",
-      description: "Keep your PS4 Pro or PS4 Slim stable in vertical position to save space.",
-      price: "$19.99",
-      image: "https://images.unsplash.com/photo-1564298429-c582451a6fa8?w=300&h=200&fit=crop"
+      title: "IPLAY Controller Charging Dock",
+      description: "Charge up to two DualSense wireless controllers simultaneously without having to connect them to your PlayStation 5 console.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "DualShock 4 Charging Station",
-      description: "Charge two DualShock 4 controllers simultaneously without the console.",
-      price: "$24.99",
-      image: "https://images.unsplash.com/photo-1564298429-c582451a6fa8?w=300&h=200&fit=crop"
+      title: "DOBE Controller Dual Charging Dock",
+      description: "Enjoy lifelike gaming audio in a comfortable headset design equipped with a retractable microphone and built-in long-life battery.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "PlayStation VR Bundle",
-      description: "Enter new worlds with PlayStation VR virtual reality gaming system.",
-      price: "$299.99",
-      image: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=300&h=200&fit=crop"
+      title: "Sony Vertical Stand (White)",
+      description: "Enjoy lifelike gaming audio wherever play takes you with a portable design equipped with hidden microphones and a companion charging case.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     }
   ];
 

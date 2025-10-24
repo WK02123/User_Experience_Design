@@ -14,7 +14,7 @@ const PlayStation = () => {
     addToCart({
       id: product.title.toLowerCase().replace(/\s+/g, '-'),
       name: product.title,
-      price: parseFloat(product.price.replace('$', '')),
+      price: parseFloat(product.price.replace('RM ', '').replace(',', '')),
       image: product.image,
     });
     toast({
@@ -27,55 +27,55 @@ const PlayStation = () => {
     {
       title: "PlayStation 5 Console",
       description: "Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback.",
-      price: "$499.99",
-      image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=400&h=300&fit=crop",
+      price: "RM 2499",
+      image: "/placeholder.svg",
       tag: "POPULAR"
     },
     {
       title: "PlayStation 5 Digital Edition",
       description: "All-digital PS5 console with Ultra-High Speed SSD and integrated I/O for a streamlined gaming experience.",
-      price: "$399.99", 
-      image: "https://images.unsplash.com/photo-1585857142399-5b7e8eb4b7a8?w=400&h=300&fit=crop",
+      price: "RM 2169", 
+      image: "/placeholder.svg",
       tag: "DIGITAL"
     }
   ];
 
   const accessories = [
     {
-      title: "DualSense Wireless Controller",
-      description: "Feel physically responsive feedback to your in-game actions with dual actuators.",
-      price: "$74.99",
-      image: "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=300&h=200&fit=crop"
-    },
-    {
-      title: "PULSE 3D Wireless Headset",
-      description: "Fine-tuned for 3D Audio on PS5 consoles for extraordinary gaming audio.",
-      price: "$99.99",
-      image: "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=300&h=200&fit=crop"
+      title: "Access Controller",
+      description: "Introducing the Access controller for PS5, a customisable and adaptive controller kit to make gaming more accessible to disabled gamers.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
       title: "HD Camera",
-      description: "Capture and broadcast your epic gaming moments in smooth, sharp full-HD.",
-      price: "$59.99",
-      image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=300&h=200&fit=crop"
+      description: "Quickly create a recording or a broadcast of yourself and your gameplay",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "Media Remote",
-      description: "Conveniently navigate entertainment on your PS5 console with intuitive media controls.",
-      price: "$29.99",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop"
+      title: "Media Remote Control",
+      description: "Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "Charging Station",
-      description: "Charge up to two DualSense wireless controllers simultaneously.",
-      price: "$29.99",
-      image: "https://images.unsplash.com/photo-1564298429-c582451a6fa8?w=300&h=200&fit=crop"
+      title: "DualSense Charging Station",
+      description: "Charge up to two DualSense wireless controllers simultaneously without having to connect them to your PlayStation 5 console.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     },
     {
-      title: "Console Cover",
-      description: "Give your PS5 console a fresh new look with official console covers.",
-      price: "$54.99",
-      image: "https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?w=300&h=200&fit=crop"
+      title: "Pulse Elite Wireless Headset",
+      description: "Enjoy lifelike gaming audio in a comfortable headset design equipped with a retractable microphone and built-in long-life battery.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
+    },
+    {
+      title: "Pulse Explore Wireless Earbuds",
+      description: "Enjoy lifelike gaming audio wherever play takes you with a portable design equipped with hidden microphones and a companion charging case.",
+      price: "RM 2169",
+      image: "/placeholder.svg"
     }
   ];
 
@@ -151,7 +151,7 @@ const PlayStation = () => {
       {/* PlayStation Accessories */}
       <section className="py-16 bg-accent/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-foreground mb-4">PlayStation Accessories</h2>
+          <h2 className="text-3xl font-bold text-center text-foreground mb-4">PlayStation 5 Accessories</h2>
           <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
             Enhance your gaming experience with official PlayStation accessories designed for the PS5 console.
           </p>
