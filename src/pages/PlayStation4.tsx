@@ -4,14 +4,16 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
+import { getProductsByType } from "@/data/products";
 
 const PlayStation4 = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const handleAddToCart = (product: { title: string; price: string; image: string }) => {
+  const handleAddToCart = (e: React.MouseEvent, product: { id: string; title: string; price: string; image: string }) => {
+    e.stopPropagation();
     addToCart({
-      id: product.title.toLowerCase().replace(/\s+/g, '-'),
+      id: product.id,
       name: product.title,
       price: parseFloat(product.price.replace('RM ', '').replace(',', '')),
       image: product.image,
@@ -22,61 +24,13 @@ const PlayStation4 = () => {
     });
     navigate('/cart');
   };
-  const ps4Models = [
-    {
-      title: "PlayStation 4 Pro",
-      description: "Experience gaming in breathtaking 4K quality with enhanced graphics and improved performance.",
-      price: "RM 1599",
-      image: "/placeholder.svg",
-      tag: "4K GAMING"
-    },
-    {
-      title: "PlayStation 4 Slim",
-      description: "Compact design with all the power of PS4 in a sleek, slimmer package for modern living spaces.",
-      price: "RM 1299",
-      image: "/placeholder.svg",
-      tag: "COMPACT"
-    }
-  ];
 
-  const accessories = [
-    {
-      title: "Controller Back Button Attachment",
-      description: "Introducing the Access controller for PS4, a customisable and adaptive controller kit to make gaming more accessible to disabled gamers.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "IPEGA Controller & PS Move QUAD Charging Station",
-      description: "Quickly create a recording or a broadcast of yourself and your gameplay",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "Sparkfox Dual Controller Charging Station",
-      description: "Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "IPLAY Controller Charging Dock",
-      description: "Charge up to two DualSense wireless controllers simultaneously without having to connect them to your PlayStation 5 console.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "DOBE Controller Dual Charging Dock",
-      description: "Enjoy lifelike gaming audio in a comfortable headset design equipped with a retractable microphone and built-in long-life battery.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "Sony Vertical Stand (White)",
-      description: "Enjoy lifelike gaming audio wherever play takes you with a portable design equipped with hidden microphones and a companion charging case.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    }
-  ];
+  const handleProductClick = (productId: string) => {
+    navigate(`/product/${productId}`);
+  };
+
+  const ps4Models = getProductsByType('ps4', 'console');
+  const accessories = getProductsByType('ps4', 'accessory');
 
   return (
     <div className="min-h-screen bg-background">
@@ -115,7 +69,11 @@ const PlayStation4 = () => {
           <h2 className="text-3xl font-bold text-center text-foreground mb-12">PlayStation 4 Console</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {ps4Models.map((model, index) => (
-              <div key={index} className="gaming-card group cursor-pointer">
+              <div 
+                key={index} 
+                className="gaming-card group cursor-pointer"
+                onClick={() => handleProductClick(model.id)}
+              >
                 <div className="relative overflow-hidden">
                   <img 
                     src={model.image}
@@ -135,7 +93,7 @@ const PlayStation4 = () => {
                     <span className="text-2xl font-bold text-primary">{model.price}</span>
                     <Button 
                       className="gaming-button bg-primary hover:bg-primary/90 text-primary-foreground"
-                      onClick={() => handleAddToCart(model)}
+                      onClick={(e) => handleAddToCart(e, model)}
                     >
                       Add to Cart
                     </Button>
@@ -157,7 +115,11 @@ const PlayStation4 = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {accessories.map((accessory, index) => (
-              <div key={index} className="gaming-card group cursor-pointer">
+              <div 
+                key={index} 
+                className="gaming-card group cursor-pointer"
+                onClick={() => handleProductClick(accessory.id)}
+              >
                 <div className="relative overflow-hidden">
                   <img 
                     src={accessory.image}
@@ -173,7 +135,7 @@ const PlayStation4 = () => {
                     <Button 
                       size="sm" 
                       className="gaming-button bg-primary hover:bg-primary/90 text-primary-foreground"
-                      onClick={() => handleAddToCart(accessory)}
+                      onClick={(e) => handleAddToCart(e, accessory)}
                     >
                       Add to Cart
                     </Button>

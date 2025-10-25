@@ -5,50 +5,33 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
+import { getProductsByType } from "@/data/products";
 
 const NintendoSwitch = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const handleAddToCart = (product: { name: string; price: string; image: string }) => {
+  const handleAddToCart = (e: React.MouseEvent, product: { id: string; name?: string; title: string; price: string; image: string }) => {
+    e.stopPropagation();
     addToCart({
-      id: product.name.toLowerCase().replace(/\s+/g, '-'),
-      name: product.name,
+      id: product.id,
+      name: product.name || product.title,
       price: parseFloat(product.price.replace('RM ', '').replace(',', '')),
       image: product.image,
     });
     toast({
       title: "Added to cart",
-      description: `${product.name} has been added to your cart`,
+      description: `${product.name || product.title} has been added to your cart`,
     });
     navigate('/cart');
   };
-  const consoles = [
-    {
-      id: 1,
-      name: "Nintendo Switch OLED Console Mario Red",
-      price: "RM 1699",
-      image: "/placeholder.svg",
-      description: "Experience gaming in breathtaking 4K quality with enhanced graphics and improved performance"
-    },
-    {
-      id: 2,
-      name: "Nintendo Switch OLED Console Neon",
-      price: "RM 1999", 
-      image: "/placeholder.svg",
-      description: "Compact design with all the power in a sleek, slimmer package for modern living spaces."
-    }
-  ];
 
-  const joycons = [
-    {
-      id: 1,
-      name: "Sparkfox Dual Controller Charging Station",
-      price: "RM 599",
-      description: "Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility",
-      image: "/placeholder.svg"
-    }
-  ];
+  const handleProductClick = (productId: string) => {
+    navigate(`/product/${productId}`);
+  };
+
+  const consoles = getProductsByType('nintendo', 'console');
+  const joycons = getProductsByType('nintendo', 'accessory');
 
   return (
     <div className="min-h-screen bg-background">
@@ -84,21 +67,25 @@ const NintendoSwitch = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Nintendo Console</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {consoles.map((console) => (
-              <Card key={console.id} className="group hover:shadow-lg transition-shadow">
+              <Card 
+                key={console.id} 
+                className="group hover:shadow-lg transition-shadow cursor-pointer"
+                onClick={() => handleProductClick(console.id)}
+              >
                 <CardContent className="p-6">
                   <div className="aspect-square mb-6 bg-gray-100 rounded-lg flex items-center justify-center">
                     <img 
                       src={console.image} 
-                      alt={console.name}
+                      alt={console.name || console.title}
                       className="w-32 h-32 object-contain"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{console.name}</h3>
+                  <h3 className="text-lg font-semibold mb-2">{console.name || console.title}</h3>
                   <p className="text-sm text-muted-foreground mb-2">{console.description}</p>
                   <p className="text-2xl font-bold text-primary mb-4">{console.price}</p>
                   <Button 
                     className="w-full"
-                    onClick={() => handleAddToCart(console)}
+                    onClick={(e) => handleAddToCart(e, console)}
                   >
                     Add to Cart
                   </Button>
@@ -121,21 +108,25 @@ const NintendoSwitch = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {joycons.map((joycon) => (
-              <Card key={joycon.id} className="group hover:shadow-lg transition-shadow">
+              <Card 
+                key={joycon.id} 
+                className="group hover:shadow-lg transition-shadow cursor-pointer"
+                onClick={() => handleProductClick(joycon.id)}
+              >
                 <CardContent className="p-6">
                   <div className="aspect-square mb-6 bg-gray-100 rounded-lg flex items-center justify-center">
                     <img 
                       src={joycon.image} 
-                      alt={joycon.name}
+                      alt={joycon.name || joycon.title}
                       className="w-32 h-32 object-contain"
                     />
                   </div>
-                  <h3 className="text-lg font-semibold mb-2">{joycon.name}</h3>
+                  <h3 className="text-lg font-semibold mb-2">{joycon.name || joycon.title}</h3>
                   <p className="text-sm text-muted-foreground mb-2">{joycon.description}</p>
                   <p className="text-2xl font-bold text-primary mb-4">{joycon.price}</p>
                   <Button 
                     className="w-full"
-                    onClick={() => handleAddToCart(joycon)}
+                    onClick={(e) => handleAddToCart(e, joycon)}
                   >
                     Add to Cart
                   </Button>

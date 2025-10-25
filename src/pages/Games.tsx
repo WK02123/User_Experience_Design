@@ -10,9 +10,10 @@ const Games = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const handleAddToCart = (game: { title: string; price: string; image: string }) => {
+  const handleAddToCart = (e: React.MouseEvent, game: { id: string; title: string; price: string; image: string }) => {
+    e.stopPropagation();
     addToCart({
-      id: game.title.toLowerCase().replace(/\s+/g, '-'),
+      id: game.id,
       name: game.title,
       price: parseFloat(game.price.replace('RM ', '')),
       image: game.image,
@@ -23,9 +24,10 @@ const Games = () => {
     });
     navigate('/cart');
   };
+
   const ps5Games = [
     {
-      id: 1,
+      id: 'playstation-5-digital-edition',
       title: "PlayStation 5 Digital Edition",
       price: "RM 2169",
       image: "/placeholder.svg",
@@ -63,10 +65,7 @@ const Games = () => {
                 <Button 
                   size="sm" 
                   className="w-full"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleAddToCart(game);
-                  }}
+                  onClick={(e) => handleAddToCart(e, game)}
                 >
                   Add to Cart
                 </Button>

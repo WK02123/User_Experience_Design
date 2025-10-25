@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
 import { Minus, Plus } from "lucide-react";
+import { getProductById } from "@/data/products";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -14,14 +15,30 @@ const ProductDetail = () => {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
 
-  // Sample product data - in a real app, this would come from an API or context
-  const product = {
-    id: id || "1",
-    name: "PlayStation 5 Digital Edition",
-    description: "All-digital PS5 console with Ultra-High Speed SSD and integrated I/O for a streamlined gaming experience.",
-    price: "RM 2169",
-    image: "/placeholder.svg"
-  };
+  // Get product from central data store
+  const productData = getProductById(id || "");
+  
+  const product = productData ? {
+    id: productData.id,
+    name: productData.title,
+    description: productData.description,
+    price: productData.price,
+    image: productData.image
+  } : null;
+
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-background">
+        <Header />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+          <h1 className="text-3xl font-bold mb-4">Product Not Found</h1>
+          <p className="text-muted-foreground mb-6">The product you're looking for doesn't exist.</p>
+          <Button onClick={() => navigate(-1)}>Go Back</Button>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {

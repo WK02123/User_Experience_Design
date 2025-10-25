@@ -5,14 +5,16 @@ import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
 import ps5Image from "@/assets/ps5-console.jpg";
+import { getProductsByType } from "@/data/products";
 
 const PlayStation = () => {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
-  const handleAddToCart = (product: { title: string; price: string; image: string }) => {
+  const handleAddToCart = (e: React.MouseEvent, product: { id: string; title: string; price: string; image: string }) => {
+    e.stopPropagation();
     addToCart({
-      id: product.title.toLowerCase().replace(/\s+/g, '-'),
+      id: product.id,
       name: product.title,
       price: parseFloat(product.price.replace('RM ', '').replace(',', '')),
       image: product.image,
@@ -23,61 +25,13 @@ const PlayStation = () => {
     });
     navigate('/cart');
   };
-  const ps5Models = [
-    {
-      title: "PlayStation 5 Console",
-      description: "Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback.",
-      price: "RM 2499",
-      image: "/placeholder.svg",
-      tag: "POPULAR"
-    },
-    {
-      title: "PlayStation 5 Digital Edition",
-      description: "All-digital PS5 console with Ultra-High Speed SSD and integrated I/O for a streamlined gaming experience.",
-      price: "RM 2169", 
-      image: "/placeholder.svg",
-      tag: "DIGITAL"
-    }
-  ];
 
-  const accessories = [
-    {
-      title: "Access Controller",
-      description: "Introducing the Access controller for PS5, a customisable and adaptive controller kit to make gaming more accessible to disabled gamers.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "HD Camera",
-      description: "Quickly create a recording or a broadcast of yourself and your gameplay",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "Media Remote Control",
-      description: "Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "DualSense Charging Station",
-      description: "Charge up to two DualSense wireless controllers simultaneously without having to connect them to your PlayStation 5 console.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "Pulse Elite Wireless Headset",
-      description: "Enjoy lifelike gaming audio in a comfortable headset design equipped with a retractable microphone and built-in long-life battery.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    },
-    {
-      title: "Pulse Explore Wireless Earbuds",
-      description: "Enjoy lifelike gaming audio wherever play takes you with a portable design equipped with hidden microphones and a companion charging case.",
-      price: "RM 2169",
-      image: "/placeholder.svg"
-    }
-  ];
+  const handleProductClick = (productId: string) => {
+    navigate(`/product/${productId}`);
+  };
+
+  const ps5Models = getProductsByType('ps5', 'console');
+  const accessories = getProductsByType('ps5', 'accessory');
 
   return (
     <div className="min-h-screen bg-background">
@@ -116,7 +70,11 @@ const PlayStation = () => {
           <h2 className="text-3xl font-bold text-center text-foreground mb-12">PlayStation 5 Console</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {ps5Models.map((model, index) => (
-              <div key={index} className="gaming-card group cursor-pointer">
+              <div 
+                key={index} 
+                className="gaming-card group cursor-pointer"
+                onClick={() => handleProductClick(model.id)}
+              >
                 <div className="relative overflow-hidden">
                   <img 
                     src={model.image}
@@ -136,7 +94,7 @@ const PlayStation = () => {
                     <span className="text-2xl font-bold text-playstation-blue">{model.price}</span>
                     <Button 
                       className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white"
-                      onClick={() => handleAddToCart(model)}
+                      onClick={(e) => handleAddToCart(e, model)}
                     >
                       Add to Cart
                     </Button>
@@ -158,7 +116,11 @@ const PlayStation = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {accessories.map((accessory, index) => (
-              <div key={index} className="gaming-card group cursor-pointer">
+              <div 
+                key={index} 
+                className="gaming-card group cursor-pointer"
+                onClick={() => handleProductClick(accessory.id)}
+              >
                 <div className="relative overflow-hidden">
                   <img 
                     src={accessory.image}
@@ -174,7 +136,7 @@ const PlayStation = () => {
                     <Button 
                       size="sm" 
                       className="gaming-button bg-playstation-blue hover:bg-playstation-blue/90 text-white"
-                      onClick={() => handleAddToCart(accessory)}
+                      onClick={(e) => handleAddToCart(e, accessory)}
                     >
                       Add to Cart
                     </Button>
