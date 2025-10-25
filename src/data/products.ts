@@ -1,3 +1,24 @@
+// Import product images
+import ps5Console from '@/assets/ps5-console.jpg';
+import ps5Digital from '@/assets/ps5-digital.jpg';
+import accessController from '@/assets/access-controller.jpg';
+import hdCamera from '@/assets/hd-camera.jpg';
+import mediaRemote from '@/assets/media-remote.jpg';
+import dualsenseCharging from '@/assets/dualsense-charging.jpg';
+import pulseEliteHeadset from '@/assets/pulse-elite-headset.jpg';
+import pulseExploreEarbuds from '@/assets/pulse-explore-earbuds.jpg';
+import ps4Pro from '@/assets/ps4-pro.jpg';
+import ps4Slim from '@/assets/ps4-slim.jpg';
+import backButtonAttachment from '@/assets/back-button-attachment.jpg';
+import ipegaQuadCharging from '@/assets/ipega-quad-charging.jpg';
+import sparkfoxPs4Charging from '@/assets/sparkfox-ps4-charging.jpg';
+import iplayChargingDock from '@/assets/iplay-charging-dock.jpg';
+import dobeChargingDock from '@/assets/dobe-charging-dock.jpg';
+import verticalStandWhite from '@/assets/vertical-stand-white.jpg';
+import switchOledMarioRed from '@/assets/switch-oled-mario-red.jpg';
+import switchOledNeon from '@/assets/switch-oled-neon.jpg';
+import sparkfoxSwitchCharging from '@/assets/sparkfox-switch-charging.jpg';
+
 export interface Product {
   id: string;
   title: string;
@@ -17,7 +38,7 @@ export const products: Product[] = [
     title: 'PlayStation 5 Console',
     description: 'Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback.',
     price: 'RM 2499',
-    image: '/placeholder.svg',
+    image: ps5Console,
     tag: 'POPULAR',
     category: 'ps5',
     type: 'console'
@@ -27,7 +48,7 @@ export const products: Product[] = [
     title: 'PlayStation 5 Digital Edition',
     description: 'All-digital PS5 console with Ultra-High Speed SSD and integrated I/O for a streamlined gaming experience.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: ps5Digital,
     tag: 'DIGITAL',
     category: 'ps5',
     type: 'console'
@@ -38,7 +59,7 @@ export const products: Product[] = [
     title: 'Access Controller',
     description: 'Introducing the Access controller for PS5, a customisable and adaptive controller kit to make gaming more accessible to disabled gamers.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: accessController,
     category: 'ps5',
     type: 'accessory'
   },
@@ -47,7 +68,7 @@ export const products: Product[] = [
     title: 'HD Camera',
     description: 'Quickly create a recording or a broadcast of yourself and your gameplay',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: hdCamera,
     category: 'ps5',
     type: 'accessory'
   },
@@ -56,7 +77,7 @@ export const products: Product[] = [
     title: 'Media Remote Control',
     description: 'Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: mediaRemote,
     category: 'ps5',
     type: 'accessory'
   },
@@ -65,7 +86,7 @@ export const products: Product[] = [
     title: 'DualSense Charging Station',
     description: 'Charge up to two DualSense wireless controllers simultaneously without having to connect them to your PlayStation 5 console.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: dualsenseCharging,
     category: 'ps5',
     type: 'accessory'
   },
@@ -74,7 +95,7 @@ export const products: Product[] = [
     title: 'Pulse Elite Wireless Headset',
     description: 'Enjoy lifelike gaming audio in a comfortable headset design equipped with a retractable microphone and built-in long-life battery.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: pulseEliteHeadset,
     category: 'ps5',
     type: 'accessory'
   },
@@ -83,7 +104,7 @@ export const products: Product[] = [
     title: 'Pulse Explore Wireless Earbuds',
     description: 'Enjoy lifelike gaming audio wherever play takes you with a portable design equipped with hidden microphones and a companion charging case.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: pulseExploreEarbuds,
     category: 'ps5',
     type: 'accessory'
   },
@@ -93,7 +114,7 @@ export const products: Product[] = [
     title: 'PlayStation 4 Pro',
     description: 'Experience gaming in breathtaking 4K quality with enhanced graphics and improved performance.',
     price: 'RM 1599',
-    image: '/placeholder.svg',
+    image: ps4Pro,
     tag: '4K GAMING',
     category: 'ps4',
     type: 'console'
@@ -103,7 +124,7 @@ export const products: Product[] = [
     title: 'PlayStation 4 Slim',
     description: 'Compact design with all the power of PS4 in a sleek, slimmer package for modern living spaces.',
     price: 'RM 1299',
-    image: '/placeholder.svg',
+    image: ps4Slim,
     tag: 'COMPACT',
     category: 'ps4',
     type: 'console'
@@ -114,7 +135,7 @@ export const products: Product[] = [
     title: 'Controller Back Button Attachment',
     description: 'Introducing the Access controller for PS4, a customisable and adaptive controller kit to make gaming more accessible to disabled gamers.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: backButtonAttachment,
     category: 'ps4',
     type: 'accessory'
   },
@@ -123,7 +144,7 @@ export const products: Product[] = [
     title: 'IPEGA Controller & PS Move QUAD Charging Station',
     description: 'Quickly create a recording or a broadcast of yourself and your gameplay',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: ipegaQuadCharging,
     category: 'ps4',
     type: 'accessory'
   },
@@ -132,7 +153,7 @@ export const products: Product[] = [
     title: 'Sparkfox Dual Controller Charging Station',
     description: 'Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: sparkfoxPs4Charging,
     category: 'ps4',
     type: 'accessory'
   },
@@ -141,7 +162,7 @@ export const products: Product[] = [
     title: 'IPLAY Controller Charging Dock',
     description: 'Charge up to two DualSense wireless controllers simultaneously without having to connect them to your PlayStation 5 console.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: iplayChargingDock,
     category: 'ps4',
     type: 'accessory'
   },
@@ -150,7 +171,7 @@ export const products: Product[] = [
     title: 'DOBE Controller Dual Charging Dock',
     description: 'Enjoy lifelike gaming audio in a comfortable headset design equipped with a retractable microphone and built-in long-life battery.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: dobeChargingDock,
     category: 'ps4',
     type: 'accessory'
   },
@@ -159,7 +180,7 @@ export const products: Product[] = [
     title: 'Sony Vertical Stand (White)',
     description: 'Enjoy lifelike gaming audio wherever play takes you with a portable design equipped with hidden microphones and a companion charging case.',
     price: 'RM 2169',
-    image: '/placeholder.svg',
+    image: verticalStandWhite,
     category: 'ps4',
     type: 'accessory'
   },
@@ -170,7 +191,7 @@ export const products: Product[] = [
     name: 'Nintendo Switch OLED Console Mario Red',
     description: 'Experience gaming in breathtaking 4K quality with enhanced graphics and improved performance',
     price: 'RM 1699',
-    image: '/placeholder.svg',
+    image: switchOledMarioRed,
     category: 'nintendo',
     type: 'console'
   },
@@ -180,7 +201,7 @@ export const products: Product[] = [
     name: 'Nintendo Switch OLED Console Neon',
     description: 'Compact design with all the power in a sleek, slimmer package for modern living spaces.',
     price: 'RM 1999',
-    image: '/placeholder.svg',
+    image: switchOledNeon,
     category: 'nintendo',
     type: 'console'
   },
@@ -191,7 +212,7 @@ export const products: Product[] = [
     name: 'Sparkfox Dual Controller Charging Station',
     description: 'Quickly navigate media with built-in play/pause, fast forward and fast reverse buttons. Seamless console compatibility',
     price: 'RM 599',
-    image: '/placeholder.svg',
+    image: sparkfoxSwitchCharging,
     category: 'nintendo',
     type: 'accessory'
   },
