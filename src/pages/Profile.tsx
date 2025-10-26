@@ -12,12 +12,24 @@ import Footer from "@/components/Footer";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth();
-  const [firstName, setFirstName] = useState("John");
-  const [lastName, setLastName] = useState("Doe");
+  const { logout, user, updateProfile } = useAuth();
+  const [firstName, setFirstName] = useState(user?.firstName || "");
+  const [lastName, setLastName] = useState(user?.lastName || "");
+  const [email, setEmail] = useState(user?.email || "");
+  const [address, setAddress] = useState(user?.address || "");
 
   const handleSaveChanges = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Update profile with new data
+    updateProfile({
+      firstName,
+      lastName,
+      email,
+      address,
+      name: `${firstName} ${lastName}`
+    });
+    
     toast({
       title: "Success",
       description: "Profile updated successfully",
@@ -44,8 +56,8 @@ const Profile = () => {
                   <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mb-4">
                     <User className="w-10 h-10 text-muted-foreground" />
                   </div>
-                  <h3 className="font-semibold">{firstName} {lastName}</h3>
-                  <p className="text-sm text-muted-foreground">john.doe@example.com</p>
+                  <h3 className="font-semibold">{firstName || 'User'} {lastName}</h3>
+                  <p className="text-sm text-muted-foreground">{email || 'email@example.com'}</p>
                 </div>
 
                 <nav className="space-y-2">
@@ -109,7 +121,8 @@ const Profile = () => {
                       id="email" 
                       type="email" 
                       placeholder="example@gmail.com" 
-                      defaultValue="john.doe@example.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   
@@ -118,7 +131,8 @@ const Profile = () => {
                     <Input 
                       id="address" 
                       placeholder="Address" 
-                      defaultValue="No. 33 Jalan Penang, 11900, Bayan Lepas"
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
                     />
                   </div>
                 </div>
@@ -128,8 +142,10 @@ const Profile = () => {
                       type="button" 
                       variant="outline"
                       onClick={() => {
-                        setFirstName("John");
-                        setLastName("Doe");
+                        setFirstName(user?.firstName || "");
+                        setLastName(user?.lastName || "");
+                        setEmail(user?.email || "");
+                        setAddress(user?.address || "");
                       }}
                     >
                       Cancel
