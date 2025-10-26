@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
 import { products } from "@/data/products";
@@ -76,6 +77,7 @@ const Games = () => {
       <Header />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <BackButton />
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Games</h1>
           <p className="text-lg text-muted-foreground">

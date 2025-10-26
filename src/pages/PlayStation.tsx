@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
@@ -36,6 +37,10 @@ const PlayStation = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <BackButton />
+      </div>
       
       {/* Hero Section */}
       <section className="relative w-full h-[500px] overflow-hidden bg-gradient-to-r from-playstation-blue to-playstation-blue/80">

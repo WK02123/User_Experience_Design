@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
 import { getProductsByType } from "@/data/products";
@@ -36,6 +37,10 @@ const NintendoSwitch = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <BackButton />
+      </div>
       
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-red-500 to-red-600 text-white py-20">

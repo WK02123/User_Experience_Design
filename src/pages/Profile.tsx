@@ -9,6 +9,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { toast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const Profile = () => {
       <Header />
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <BackButton />
         <h1 className="text-3xl font-bold mb-8">My Profile</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

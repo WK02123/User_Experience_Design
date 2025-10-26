@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
 
 const TrackOrder = () => {
   const trackingSteps = [
@@ -37,6 +38,7 @@ const TrackOrder = () => {
       <Header />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <BackButton />
         <h1 className="text-3xl font-bold mb-8 text-primary">Track Order</h1>
 
         {/* Order Tracking Timeline */}
