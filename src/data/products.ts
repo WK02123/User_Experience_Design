@@ -18,6 +18,14 @@ import verticalStandWhite from '@/assets/vertical-stand-white.jpg';
 import switchOledMarioRed from '@/assets/switch-oled-mario-red.jpg';
 import switchOledNeon from '@/assets/switch-oled-neon.jpg';
 import sparkfoxSwitchCharging from '@/assets/sparkfox-switch-charging.jpg';
+import spiderman2 from '@/assets/spiderman2-ps5.jpg';
+import gowRagnarok from '@/assets/gow-ragnarok-ps5.jpg';
+import horizonForbiddenWest from '@/assets/horizon-forbidden-west-ps5.jpg';
+import tlouPart1 from '@/assets/tlou-part1-ps5.jpg';
+import ratchetClank from '@/assets/ratchet-clank-ps5.jpg';
+import granTurismo7 from '@/assets/gran-turismo7-ps5.jpg';
+import demonsSouls from '@/assets/demons-souls-ps5.jpg';
+import returnal from '@/assets/returnal-ps5.jpg';
 
 export interface Product {
   id: string;
@@ -215,6 +223,81 @@ export const products: Product[] = [
     image: sparkfoxSwitchCharging,
     category: 'nintendo',
     type: 'accessory'
+  },
+  // PS5 Games
+  {
+    id: 'spiderman-2-ps5',
+    title: "Marvel's Spider-Man 2",
+    description: 'Swing through Marvel\'s New York as Peter Parker and Miles Morales in this epic superhero adventure.',
+    price: 'RM 299',
+    image: spiderman2,
+    tag: 'POPULAR',
+    category: 'game',
+    type: 'game'
+  },
+  {
+    id: 'god-of-war-ragnarok-ps5',
+    title: 'God of War Ragnarök',
+    description: 'Join Kratos and Atreus on an epic journey through the Nine Realms in this action-adventure masterpiece.',
+    price: 'RM 279',
+    image: gowRagnarok,
+    tag: 'AWARD WINNER',
+    category: 'game',
+    type: 'game'
+  },
+  {
+    id: 'horizon-forbidden-west-ps5',
+    title: 'Horizon Forbidden West',
+    description: 'Explore a vibrant open world filled with mechanical creatures and ancient mysteries with Aloy.',
+    price: 'RM 259',
+    image: horizonForbiddenWest,
+    category: 'game',
+    type: 'game'
+  },
+  {
+    id: 'the-last-of-us-part-1-ps5',
+    title: 'The Last of Us Part I',
+    description: 'Experience the emotional journey of Joel and Ellie in this critically acclaimed remake.',
+    price: 'RM 249',
+    image: tlouPart1,
+    category: 'game',
+    type: 'game'
+  },
+  {
+    id: 'ratchet-clank-rift-apart-ps5',
+    title: 'Ratchet & Clank: Rift Apart',
+    description: 'Jump between dimensions in this visually stunning action-platformer adventure.',
+    price: 'RM 269',
+    image: ratchetClank,
+    category: 'game',
+    type: 'game'
+  },
+  {
+    id: 'gran-turismo-7-ps5',
+    title: 'Gran Turismo 7',
+    description: 'The real driving simulator returns with stunning graphics and realistic racing physics.',
+    price: 'RM 289',
+    image: granTurismo7,
+    category: 'game',
+    type: 'game'
+  },
+  {
+    id: 'demons-souls-ps5',
+    title: "Demon's Souls",
+    description: 'Experience the brutal challenge of this beautifully remade dark fantasy action RPG.',
+    price: 'RM 269',
+    image: demonsSouls,
+    category: 'game',
+    type: 'game'
+  },
+  {
+    id: 'returnal-ps5',
+    title: 'Returnal',
+    description: 'Break the cycle of chaos in this intense third-person shooter with roguelike elements.',
+    price: 'RM 259',
+    image: returnal,
+    category: 'game',
+    type: 'game'
   },
 ];
 

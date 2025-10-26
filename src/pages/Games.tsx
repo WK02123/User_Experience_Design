@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "@/hooks/use-toast";
+import { products } from "@/data/products";
 
 const Games = () => {
   const { addToCart } = useCart();
@@ -25,15 +26,8 @@ const Games = () => {
     navigate('/cart');
   };
 
-  const ps5Games = [
-    {
-      id: 'playstation-5-digital-edition',
-      title: "PlayStation 5 Digital Edition",
-      price: "RM 2169",
-      image: "/placeholder.svg",
-      description: "All-digital PS5 console with Ultra-High Speed SSD and integrated I/O for a streamlined gaming experience."
-    }
-  ];
+  // Filter games from products
+  const ps5Games = products.filter(product => product.type === 'game' && product.category === 'game');
 
   const ps4Games: any[] = [];
 
