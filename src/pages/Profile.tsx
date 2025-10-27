@@ -22,6 +22,54 @@ const Profile = () => {
   const handleSaveChanges = (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validation
+    if (!firstName.trim()) {
+      toast({
+        title: "Error",
+        description: "Please enter your first name",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!lastName.trim()) {
+      toast({
+        title: "Error",
+        description: "Please enter your last name",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!email.trim()) {
+      toast({
+        title: "Error",
+        description: "Please enter your email",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Error",
+        description: "Please enter a valid email address",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (!address.trim()) {
+      toast({
+        title: "Error",
+        description: "Please enter your address",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     // Update profile with new data
     updateProfile({
       firstName,
